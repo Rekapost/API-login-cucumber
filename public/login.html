@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Login Form</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById('loginForm');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent page reload
+
+                // Collect form data
+                const formData = new FormData(form);
+
+                // Log the data to check before sending
+                console.log("Form data:", Array.from(formData.entries()));
+                
+                // Convert FormData to JSON
+                const formDataObj = {};
+                formData.forEach((value, key) => {
+                    formDataObj[key] = value;
+                });
+
+                // Log the form data as JSON
+                console.log("Form data as JSON:", formDataObj);
+
+                // Send data using fetch (POST request)
+                fetch('/login', {
+                    method: 'POST',
+                    //body: formData
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formDataObj) // Send the JSON data
+                })
+                .then(response => response.json()) // Assuming the server returns JSON
+                .then(data => {
+                    console.log('Success:', data);
+                    alert('Login successful!');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error during login');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="loginForm" method="POST" action="/login">
+        <label for="uname">Username</label>
+        <input type="text" id="uname" name="uname" required>
+
+        <label for="psw">Password</label>
+        <input type="password" id="psw" name="psw" required>
+
+        <label>
+            <input type="checkbox" id="remember" name="remember"> Remember me
+        </label>
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
