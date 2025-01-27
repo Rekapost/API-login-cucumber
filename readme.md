@@ -7,6 +7,7 @@ Run the server :
 npm start
 node server.js 
 http://localhost:3000/login.html
+![image](https://github.com/user-attachments/assets/3a13cedb-4f44-4791-afc8-6d807c22d93d)
 
 netstat -ano | findstr :3000
 taskkill /PID 2556 /F
@@ -33,3 +34,5 @@ Body (Response Data):
         "remember": "on"
     }
 }
+
+![image](https://github.com/user-attachments/assets/dad83e2d-0b30-4f42-a0a5-0b493d06cd36)
