@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 // Route to handle POST request
-app.post('/login.html', (req, res) => {
+app.post('/login', (req, res) => {
     // Extract data from the incoming request body
     const uname = req.body.uname;
     const psw = req.body.psw;
@@ -47,7 +47,12 @@ app.post('/login.html', (req, res) => {
     });
     */
     if (uname === "reka12" && psw === "reka123") {
-        res.status(200).json({ message: 'Login successful!' });
+        // Send the desired response
+        res.status(200).json({
+            status: 'success',
+            message: 'Login successful!',
+            data: { uname, psw, remember: rememberStatus }
+        });
     } else {
         res.status(401).json({ message: 'Invalid credentials!' });
     }

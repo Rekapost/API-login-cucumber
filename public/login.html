@@ -1,9 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>Login Form</title>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const form = document.getElementById('loginForm');
+            const form = document.querySelector('form');
+            //const form = document.getElementById('loginForm');
             form.addEventListener('submit', (event) => {
                 event.preventDefault(); // Prevent page reload
 
@@ -26,7 +29,7 @@
                 fetch('/login', {
                     method: 'POST',
                     //body: formData
-                    method: 'POST',
+                    
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -46,17 +49,17 @@
     </script>
 </head>
 <body>
-    <form id="loginForm" method="POST" action="/login">
-        <label for="uname">Username</label>
-        <input type="text" id="uname" name="uname" required>
+    <h1>Login</h1>
+    <form id="loginForm" method="POST" >
+        <label for="uname">Username:</label>
+        <input type="text" id="uname" name="uname" required><br><br>
 
-        <label for="psw">Password</label>
-        <input type="password" id="psw" name="psw" required>
+        <label for="psw">Password:</label>
+        <input type="password" id="psw" name="psw" required><br><br>
 
-        <label>
-            <input type="checkbox" id="remember" name="remember"> Remember me
-        </label>
-
+        <label for="remember">Remember me:</label>
+        <input type="checkbox" id="remember" name="remember"><br><br>
+        
         <button type="submit">Login</button>
     </form>
 </body>

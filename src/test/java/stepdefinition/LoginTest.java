@@ -18,7 +18,7 @@ public class LoginTest{
         response = given()
                 .baseUri("http://localhost:3000/")
                 .header("Content-type", "application/json")
-                .body("{ \"uname\": \"reka\", \"psw\": \"reka123\", \"remember\": \"on\" }")
+                .body("{ \"uname\": \"reka12\", \"psw\": \"reka123\", \"remember\": \"on\" }")
             .when()
                 .log().all()
                 .post("/login")
@@ -49,7 +49,7 @@ public class LoginTest{
         String psw = response.jsonPath().getString("data.psw");
         String remember = response.jsonPath().getString("data.remember");
 
-        assertThat(uname, equalTo("reka"));
+        assertThat(uname, equalTo("reka12"));
         assertThat(psw, equalTo("reka123"));
         assertThat(remember, equalTo("on"));
     }

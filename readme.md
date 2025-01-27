@@ -1,5 +1,10 @@
+Initialize a new Node.js project :
 npm init -y
+Created package.json
+To setup express server server.js: 
 npm install express
+Run the server :
+npm start
 node server.js 
 http://localhost:3000/login.html
 
@@ -12,14 +17,13 @@ Request URL: http://localhost:3000/login.html
 Request Method: POST
 Content-Type: application/json 
 Payload:
-{uname: "reka", psw: "reka123", remember: "on"}
+{uname: "reka12", psw: "reka123", remember: "on"}
 
 Example of Response:
 Headers:
 Response Status: 200 OK
 Content-Type: application/json
 Body (Response Data):
-
 {
     "status": "success",
     "message": "Login successful!",
